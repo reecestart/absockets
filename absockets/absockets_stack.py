@@ -44,3 +44,13 @@ class AbsocketsStack(Stack):
         )
         portfolio.give_access_to_role(role)
 
+        product = servicecatalog.CloudFormationProduct(self, "MyFirstProduct",
+            product_name="My Product",
+            owner="Product Owner",
+            product_versions=[servicecatalog.CloudFormationProductVersion(
+                product_version_name="v1",
+                cloud_formation_template=servicecatalog.CloudFormationTemplate.from_url("https://raw.githubusercontent.com/awslabs/aws-cloudformation-templates/master/aws/services/ServiceCatalog/Product.yaml")
+            )
+            ]
+        )
+
